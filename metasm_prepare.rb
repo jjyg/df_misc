@@ -70,7 +70,7 @@ def vtable_funcs_map(df, map, hdr)
 end
 
 
-system 'cp', globals, File.dirname(dfbase)
+#system 'cp', globals, File.dirname(dfbase)
 system 'cp', 'metasm_dasm_dfstructs.rb', dfbase+'.rb'
 
 chdr = dfbase + '.h'
@@ -87,5 +87,5 @@ redirect_stdout(map) { system 'ruby', 'scan_vtable.rb', '--map', df }
 puts 'vtable funcs -> map'
 redirect_stdout(map, 'a') { vtable_funcs_map(df, map, chdr) }
 
-puts 'globals -> map'
-redirect_stdout(map, 'a') { system 'ruby', 'globalcsv2map.rb', globals }
+#puts 'globals -> map'
+#redirect_stdout(map, 'a') { system 'ruby', 'globalcsv2map.rb', globals }

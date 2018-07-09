@@ -21,7 +21,7 @@
 
 
 # load globals.csv, map label names -> struct name
-$df_globals = File.readlines(File.dirname(program.filename) + '/globals.csv').inject({}) { |h, l|
+$df_globals = (File.readlines(File.dirname(program.filename) + '/globals.csv') || []).inject({}) { |h, l|
 	u = l.split(',').map { |w| w[1...-1] }
 	next h if u[6].empty?
 	h.update u[5].gsub(/[^\w]/, '_') => u[6]
